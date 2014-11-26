@@ -13,13 +13,14 @@
     $totalReg = $cliente->totalRegistros($sql);
 
     if($totalReg>0){
-        $cliente[ID] = $cliente->getId();
-        $cliente[NOME] = $cliente->getCliente();
-        $cliente[email] = $cliente->getEmail();
+        $cliente->verCliente($sql,0);
+        $cli['ID'] = $cliente->getId();
+        $cli['CLIENTE'] = $cliente->getCliente();
+        $cli['EMAIL'] = $cliente->getEmail();
 
-        $_SESSION[cliente_curso] = $cliente;
+        $_SESSION['cliente_curso'] = $cli;
 
-        echo "<script>location.href='index.php?link=1'</script>";
+       echo "<script>location.href='index.php?link=1'</script>";
 
     }else{
        /* unset($_SESSION['cliente_curso']['ID']);

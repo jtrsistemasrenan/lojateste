@@ -1,5 +1,22 @@
+<?php
+
+    if(!$_SESSION){
+        session_start();
+    }
+    if(isset($_SESSION['cliente_curso']['CLIENTE']))
+    $cliente =  $_SESSION['cliente_curso']['CLIENTE'];
+    else
+        $cliente="";
+
+    if($cliente==""){
+        $cliente='visitante';
+    }
+?>
+
 <div id="cabecalho_superior">
+
 	<nav id="menu-cima">
+        <span>Seja bem vindo a nossa loja <?php echo $cliente?></span>
 		<ul>
 			<li><a href="#">Minha conta</a></li>
 			<li><a href="index.php?link=3">Meu carrinho</a></li>
