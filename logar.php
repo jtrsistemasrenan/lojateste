@@ -20,7 +20,7 @@
 
         $_SESSION['cliente_curso'] = $cli;
 
-       echo "<script>location.href='index.php?link=1'</script>";
+       echo    "<script>location.href='index.php?link=1'</script>";
 
     }else{
        /* unset($_SESSION['cliente_curso']['ID']);
