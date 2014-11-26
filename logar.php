@@ -1,0 +1,35 @@
+<?php
+    session_start();
+    include_once "admin/classes/DadosDoBanco.php";
+    include_once "admin/biblio.php";
+
+    $cliente = new DadosCliente();
+
+    $txt_email = strip_tags($_POST['txt_email']);
+    $txt_senha = strip_tags($_POST['txt_senha']);
+
+    $sql = "SELECT * FROM cliente where email ='". anti_sql_injection($txt_email)."' and senha = '". anti_sql_injection($txt_senha)."'";
+
+    $totalReg = $cliente->totalRegistros($sql);
+
+    if($totalReg>0){
+        $cliente[ID] = $cliente->getId();
+        $cliente[NOME] = $cliente->getCliente();
+        $cliente[email] = $cliente->getEmail();
+
+        $_SESSION[cliente_curso] = $cliente;
+
+        echo "<script>location.href='index.php?link=1'</script>";
+
+    }else{
+       /* unset($_SESSION['cliente_curso']['ID']);
+        unset($_SESSION['cliente_curso']['email']);
+        unset($_SESSION['cliente_curso']['NOME']);*/
+
+        echo " <META HTTP-EQUIV='refresh' content='0;URL=index.php?link=5'>
+        <script> alert('Login não encontrado, Tente novamente')</script>
+         ";
+    }
+
+
+?>
