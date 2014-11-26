@@ -5,6 +5,8 @@ $produto = new DadosProduto();
 $carrinho = new DadosCarrinho();
 $cliente = new DadosCliente();
 
+//testando o git
+
     session_start();
 
 ?>
