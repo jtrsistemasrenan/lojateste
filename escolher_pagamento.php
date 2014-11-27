@@ -12,11 +12,11 @@ if($id_pedido==''){
 ?>
 
 <div id="base-carrinho">
-    <h2><img src="imagens/barra-carrinho01.png"></h2>
-    <h3><img src="imagens/meu-carrinho.png"></h3>
+    <h2><img src="imagens/barra-carrinho03.png"></h2>
+    <h3><img src="imagens/forma-pag.png"></h3>
     <div class="dados-carrinho">
-        <span> Para excluir coloque a quantidade zero e clique em atualizar!</span>
-        <form name="frm_carrinho" action="op_carrinho.php" method="post">
+
+
             <table cellpadding="0" cellspacing="0" border="1">
 
                 <thead>
@@ -26,7 +26,7 @@ if($id_pedido==''){
                     <th>Quantidade</th>
                     <th>Preço unitário</th>
                     <th>Subtotal </th>
-                    <th>Atualizar</th>
+
                 </tr>
 
                 </thead>
@@ -42,8 +42,6 @@ if($id_pedido==''){
                     $carrinho->verCarrinho($sql,$i);
                     $subTotal = $carrinho->getPreco() * $carrinho->getQtde();
                     $codProd [$i]= $carrinho->getIdProduto();
-
-
                     ?>
 
                     <tr>
@@ -52,14 +50,9 @@ if($id_pedido==''){
                             <img src="admin/fotos/<?php echo $carrinho->getImagemProduto()?>">
                             <strong><?php echo $carrinho->getTituloProduto()?></strong>
                         </td>
-                        <td><input type="number" name="codprod[<?php echo $i?>][QTDE]" value=<?php echo $carrinho->getQtde()?> "size="3" maxlength="3" min="0" max="100" step="1"> </td>
+                        <td><?php echo $carrinho->getQtde()?> </td>
                         <td>R$ <?php echo $carrinho->getPreco() ?> </td>
                         <td> <?php echo $subTotal?></td>
-
-                        <td>
-                            <input type="hidden" name="codprod[<?php echo $i?>][IDPRODUTO]" value="<?php echo $carrinho->getIdProduto()?>" >
-                            <input type="hidden" name="acao" value="ALTERAR" >
-                            <input type="submit" name="alterar" value="Atualizar"> </td>
                         <?php $total_produto+=$subTotal?>
 
                     </tr>
@@ -73,7 +66,7 @@ if($id_pedido==''){
 
 
             </table>
-        </form>
+
 
     </div>
 

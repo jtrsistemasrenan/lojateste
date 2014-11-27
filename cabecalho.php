@@ -1,8 +1,8 @@
 <?php
 
-    if(!$_SESSION){
-        session_start();
-    }
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
     if(isset($_SESSION['cliente_curso']['CLIENTE']))
     $cliente =  $_SESSION['cliente_curso']['CLIENTE'];
     else

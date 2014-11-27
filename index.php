@@ -39,6 +39,7 @@ $cliente = new DadosCliente();
             $page[3] = "carrinho.php";
             $page[4] = "frm_cliente.php";
             $page[5] = "logarParaComprar.php";
+            $page[6] = "escolher_pagamento.php";
 
 
             if(!empty($link)){
