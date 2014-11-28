@@ -59,7 +59,7 @@ if($id_pedido==''){
 
                 <?php } ?>
                 <tr>
-                    <td colspan="5"> <?php if(isset($total_produto)){echo 'Total ='.$total_produto;}?></td>
+                    <td colspan="5"> <?php if(isset($total_produto)){echo 'Total: '.$total_produto;}?></td>
                 </tr>
 
                 </tbody>
@@ -67,47 +67,48 @@ if($id_pedido==''){
 
             </table>
 
+        <h4 class="fundo_azul">Opção 01 - Depósito / transferência</h4>
+        <div id="container-logar">
+            <div id="container-bancos-geral">
+                <div id="container-banco">
+                    <img src="imagens/bb.png">
+                  <p>  Banco do Brasil<br/>
+                    Agencia: 1613-6 <br/>
+                    Conta: 1651-2 <br/>
+                    Teste de Conta <br/></p>
 
-    </div>
+                </div>
+                <div id="container-banco">
+                    <img src="imagens/bradesco.png">
+                    <p> Banco Bradesco<br/>
+                        Agencia: 1613-6 <br/>
+                        Conta: 1651-2 <br/>
+                        Teste de Conta <br/></p>
 
-    <div id="linha">
+                </div>
+                <div id="container-banco">
+                    <img src="imagens/itau.png">
+                    <p>  Banco Itaú<br/>
+                        Agencia: 1613-6 <br/>
+                        Conta: 1651-2 <br/>
+                        Teste de Conta <br/></p>
 
-        <img src = "imagens/finalizar-compra.png"><a href="index.php"><img src="imagens/continuar-comprando.png"></a>
+                </div>
+                <div id="container-banco">
+                    <img src="imagens/caixa.png">
+                    <p>  Caixa Economica Federal<br/>
+                        Agencia: 1613-6 <br/>
+                        Conta: 1651-2 <br/>
+                        Teste de Conta <br/></p>
 
-    </div>
-    <div class="vitrine">
-        <div id="sugestao">
-            <h3 class="titulo fundo_azul">Sugestões de Compra</h3>
+                </div>
 
-            <ul>
-                <?php
-                $sql_produtos = "SELECT * FROM produto where id_categoria =1";
-                $total_produto = $produto->totalRegistros($sql_produtos);
-
-                for($j=0;$j<$total_produto;$j++){
-                    $produto->verProdutos($sql_produtos,$j);
-
-                    ?>
-                    <li>
-                        <a href="index.php?link=2&id=<?php echo $produto->getId()?>">
-                            <figure>
-                                <img src="admin/fotos/<?php echo $produto->getImagemProduto()?>" alt="Curso de Firebird">
-                                <figcaption> <?php echo $produto->getTituloProduto()?> </figcaption>
-                            </figure>
-                            <span> R$ <?php echo $produto->getPreco()?> </span>
-                            <form action="op_carrinho.php" method="post">
-                                <input type="hidden" name="txt_valor" value="<?php echo $produto->getPreco()?>"/>
-                                <input type="hidden" name="id_produto" value="<?php echo $produto->getId()?>"/>
-                                <input type="submit" value="">
-                            </form>
-                        </a>
-                    </li>
-                <?php }?>
-
-            </ul>
+            </div>
 
         </div>
-        </section>
+
+
+    </div>
     </div>
 
 </div>
