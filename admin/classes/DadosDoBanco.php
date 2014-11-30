@@ -90,6 +90,7 @@ class DadosCliente extends conexaoMySQL{
 
 
     }
+    //Conta quantos registro exitem apartir de um select from
     public function totalRegistros($sql){
         $qry = self::executarSQL($sql);
         $total= self::contaDados($qry);
@@ -244,6 +245,7 @@ class DadosCategoria extends conexaoMysql
 
     }
 
+    //Conta quantos registro exitem apartir de um select from
     public function totalRegistros($sql){
         $query = self::executarSQL($sql);
         $total = self::contaDados($query);
@@ -601,7 +603,7 @@ class DadosProduto extends conexaoMysql
         $this->imagem_produto   = $linha['imagem_produto'];
 
     }
-
+    //Conta quantos registro exitem apartir de um select from
         public function totalRegistros($sql){
         $query = self::executarSQL($sql);
         $total = self::contaDados($query);
@@ -642,10 +644,10 @@ class DadosProduto extends conexaoMysql
  */
 class DadosCarrinho extends conexaoMysql
 {
-    private $id,$id_pedido, $id_produto,$valor,$qtde;
+    private $id, $id_pedido, $id_produto, $valor, $qtde;
 
-    private  $id_categoria, $titulo_produto, $preco,
-        $autor, $duracao,$descricao,$conteudo,$slug_produto,$ativo_produto,$imagem_produto;
+    private $id_categoria, $titulo_produto, $preco,
+        $autor, $duracao, $descricao, $conteudo, $slug_produto, $ativo_produto, $imagem_produto;
 
     /**
      * @return mixed
@@ -888,11 +890,6 @@ class DadosCarrinho extends conexaoMysql
     }
 
 
-
-
-
-
-
     /**
      * Armazena todos os dados do produto nas variáveis do objeto para poderem ser utilizadas
      * atraves dos getters. Obs: para chamar esse metodo é necessário setar o id primeiro.
@@ -903,26 +900,28 @@ class DadosCarrinho extends conexaoMysql
         $qry = self::executarSQL($sql);
         $linha = self::listar($qry);
 
-        $this->id               = $linha['id_produto'];
-        $this->id_categoria     = $linha['id_categoria'];
-        $this->titulo_produto   = $linha['titulo_produto'];
-        $this->preco            = $linha['preco'];
-        $this->autor            = $linha['autor'];
-        $this->duracao          = $linha['duracao'];
-        $this->descricao        = $linha['descricao'];
-        $this->conteudo         = $linha['conteudo'];
-        $this->slug_produto     = $linha['slug_produto'];
-        $this->ativo_produto    = $linha['ativo_produto'];
-        $this->imagem_produto   = $linha['imagem_produto'];
+        $this->id = $linha['id_produto'];
+        $this->id_categoria = $linha['id_categoria'];
+        $this->titulo_produto = $linha['titulo_produto'];
+        $this->preco = $linha['preco'];
+        $this->autor = $linha['autor'];
+        $this->duracao = $linha['duracao'];
+        $this->descricao = $linha['descricao'];
+        $this->conteudo = $linha['conteudo'];
+        $this->slug_produto = $linha['slug_produto'];
+        $this->ativo_produto = $linha['ativo_produto'];
+        $this->imagem_produto = $linha['imagem_produto'];
 
-        $this->id_pedido  = $linha['id_pedido'];
+        $this->id_pedido = $linha['id_pedido'];
         $this->id_produto = $linha['id_produto'];
         $this->valor = $linha['valor'];
-        $this->qtde  = $linha['qtde'];
+        $this->qtde = $linha['qtde'];
 
     }
 
-    public function totalRegistros($sql){
+    //Conta quantos registro exitem apartir de um select from
+    public function totalRegistros($sql)
+    {
         $query = self::executarSQL($sql);
         $total = self::contaDados($query);
 
@@ -930,34 +929,230 @@ class DadosCarrinho extends conexaoMysql
 
     }
 
-    public function verCarrinho($sql,$i){
+    public function verCarrinho($sql, $i)
+    {
         $qry = mysql_query($sql);
 
         // tabela do produto
-        $this->id               = mysql_result($qry,$i,'id_produto');
-        $this->id_categoria     = mysql_result($qry,$i,'id_categoria');
-        $this->titulo_produto   = mysql_result($qry,$i,'titulo_produto');
-        $this->preco            = mysql_result($qry,$i,'preco');
-        $this->autor            = mysql_result($qry,$i,'autor');
-        $this->duracao          = mysql_result($qry,$i,'duracao');
-        $this->descricao        = mysql_result($qry,$i,'descricao');
-        $this->conteudo         = mysql_result($qry,$i,'conteudo');
-        $this->slug_produto     = mysql_result($qry,$i,'slug_produto');
-        $this->ativo_produto    = mysql_result($qry,$i,'ativo_produto');
-        $this->imagem_produto   = mysql_result($qry,$i,'imagem_produto');
+        $this->id = mysql_result($qry, $i, 'id_produto');
+        $this->id_categoria = mysql_result($qry, $i, 'id_categoria');
+        $this->titulo_produto = mysql_result($qry, $i, 'titulo_produto');
+        $this->preco = mysql_result($qry, $i, 'preco');
+        $this->autor = mysql_result($qry, $i, 'autor');
+        $this->duracao = mysql_result($qry, $i, 'duracao');
+        $this->descricao = mysql_result($qry, $i, 'descricao');
+        $this->conteudo = mysql_result($qry, $i, 'conteudo');
+        $this->slug_produto = mysql_result($qry, $i, 'slug_produto');
+        $this->ativo_produto = mysql_result($qry, $i, 'ativo_produto');
+        $this->imagem_produto = mysql_result($qry, $i, 'imagem_produto');
 
         //tabela do carrinho
-        $this->id_pedido  = mysql_result($qry,$i,'id_pedido');
-        $this->id_produto = mysql_result($qry,$i,'id_produto');
-        $this->valor =      mysql_result($qry,$i,'valor');
-        $this->qtde  =      mysql_result($qry,$i,'qtde');
-
+        $this->id_pedido = mysql_result($qry, $i, 'id_pedido');
+        $this->id_produto = mysql_result($qry, $i, 'id_produto');
+        $this->valor = mysql_result($qry, $i, 'valor');
+        $this->qtde = mysql_result($qry, $i, 'qtde');
 
 
     }
 
+}
+class DadosVenda extends conexaoMySQL{
+
+    private $id,$id_cliente, $data_venda, $codigo_rastreamento, $pago, $status_venda;
 
 
+
+    public function setId($id){
+        $this->id = $id;
+    }
+    public function getId(){
+        return $this-> id;
+    }
+    public function getIdCliente(){
+        return $this-> id_cliente;
+    }
+    public function getDataVenda(){
+        return $this-> data_venda;
+    }
+    public function getCodigoRastreamento(){
+        return $this-> codigo_rastreamento;
+    }
+    public function getPago(){
+        return $this-> pago;
+    }
+    public function getStatusVenda(){
+        return $this-> status_venda;
+    }
+
+    /**
+     * Armazena todos os dados da venda nas variáveis do objeto para poderem ser utilizadas
+     * atraves dos getters. Obs: para chamar esse metodo é necessário setar o id primeiro.
+     */
+    public function mostrarDados(){
+        $sql= "SELECT * FROM venda WHERE id_venda = '$this->id'";
+        $qry = self::executarSQL($sql);
+        $linha = self::listar($qry);
+
+
+        $this->id  					= $linha["id_venda"];
+        $this->id_cliente  			= $linha["id_cliente"];
+        $this->data_venda  			= $linha["data_venda"];
+        $this->codigo_rastreamento 	= $linha["codigo_rastreamento"];
+        $this->pago  				= $linha["pago"];
+        $this->status_venda  		= $linha["status_venda"];
+
+    }
+
+    public function totalRegistros($sql){
+        $qry = self::executarSQL($sql);
+        $total= self::contaDados($qry);
+
+        return $total;
+    }
+
+
+
+    public function verVenda($sql,$i){
+        $qry = mysql_query($sql);
+
+        $this->id  					= mysql_result($qry,$i,"id_venda");
+        $this->id_cliente  			= mysql_result($qry,$i,"id_cliente");
+        $this->data_venda  			= mysql_result($qry,$i,"data_venda");
+        $this->codigo_rastreamento 	= mysql_result($qry,$i,"codigo_rastreamento");
+        $this->pago  				= mysql_result($qry,$i,"pago");
+        $this->status_venda  		= mysql_result($qry,$i,"status_venda");
+
+    }
+
+}
+
+
+class DadosItensVenda extends conexaoMySQL{
+
+    private $id,$id_venda, $id_produto, $valor, $qtde;
+
+    private $id_categoria, $titulo_produto, $preco, $autor, $duracao,
+        $descricao, $conteudo, $slug_produto, $ativo_produto, $imagem_produto;
+
+    public function setId($id){
+        $this->id = $id;
+    }
+    public function getId(){
+        return $this-> id;
+    }
+    public function getIdCategoria(){
+        return $this-> id_categoria;
+    }
+    public function getTituloProduto(){
+        return $this-> titulo_produto;
+    }
+    public function getPreco(){
+        return $this-> preco;
+    }
+    public function getAtivo(){
+        return $this-> ativo_banner;
+    }
+    public function getAutor(){
+        return $this-> autor;
+    }
+    public function getDuracao(){
+        return $this-> duracao;
+    }
+    public function getDescricao(){
+        return $this-> descricao;
+    }
+    public function getConteudo(){
+        return $this-> conteudo;
+    }
+    public function getSlugProduto(){
+        return $this-> slug_produto;
+    }
+    public function getAtivoProduto(){
+        return $this-> ativo_produto;
+    }
+    public function getImagemProduto(){
+        return $this-> imagem_produto;
+    }
+
+
+    public function getIdVenda(){
+        return $this-> id_venda;
+    }
+    public function getIdProduto(){
+        return $this-> id_produto;
+    }
+    public function getValor(){
+        return $this-> valor;
+    }
+    public function getQtde(){
+        return $this-> qtde;
+    }
+    /**
+     * Armazena todos os dados dos itens de venda nas variáveis do objeto para poderem ser utilizadas
+     * atraves dos getters. Obs: para chamar esse metodo é necessário setar o id primeiro.
+     */
+    public function mostrarDados(){
+        $sql= "SELECT i.*, p.* FROM itens_venda i, produto p where  i.id_produto = p.id_produto and id_venda = '$this->id_venda'";
+        $qry = self::executarSQL($sql);
+        $linha = self::listar($qry);
+
+        $this->id  				= $linha["id_item"];
+        $this->id_categoria  	= $linha["id_categoria"];
+        $this->titulo_produto  	= $linha["titulo_produto"];
+        $this->preco  			= $linha["preco"];
+        $this->autor  			= $linha["autor"];
+        $this->duracao  		= $linha["duracao"];
+        $this->descricao  		= $linha["descricao"];
+        $this->conteudo  		= $linha["conteudo"];
+        $this->slug_produto  	= $linha["slug_produto"];
+        $this->ativo_produto  	= $linha["ativo_produto"];
+        $this->imagem_produto  	= $linha["imagem_produto"];
+
+        $this->id_venda  	= $linha["id_venda"];
+        $this->id_produto  	= $linha["id_produto"];
+        $this->valor  		= $linha["valor_item"];
+        $this->qtde  		= $linha["qtde"];
+
+    }
+
+
+    public function totalRegistros($sql){
+        $qry = self::executarSQL($sql);
+        $total= self::contaDados($qry);
+
+
+        return $total;
+    }
+    /*Faz a soma de todas as vendas com o id passado pelo parametro id*/
+    public function somaVendas($id){
+        $sql = "SELECT SUM(valor_item * qtde) as totalVenda FROM itens_venda WHERE id_venda= '$id'";
+        $qry = self::executarSQL($sql);
+        $linha = self::listar($qry);
+
+        return $linha["totalVenda"];
+    }
+
+    public function verItens($sql,$i){
+        $qry = mysql_query($sql);
+
+        //tabela de produto
+        $this->id  				= mysql_result($qry,$i,"id_item");
+        $this->id_categoria  	= mysql_result($qry,$i,"id_categoria");
+        $this->titulo_produto  	= mysql_result($qry,$i,"titulo_produto");
+        $this->preco  			= mysql_result($qry,$i,"preco");
+        $this->autor  			= mysql_result($qry,$i,"autor");
+        $this->duracao  		= mysql_result($qry,$i,"duracao");
+        $this->descricao  		= mysql_result($qry,$i,"descricao");
+        $this->conteudo  		= mysql_result($qry,$i,"conteudo");
+        $this->slug_produto  	= mysql_result($qry,$i,"slug_produto");
+        $this->ativo_produto  	= mysql_result($qry,$i,"ativo_produto");
+        $this->imagem_produto  	= mysql_result($qry,$i,"imagem_produto");
+        //tabela do carrinho
+        $this->id_venda  		= mysql_result($qry,$i,"id_venda");
+        $this->id_produto  		= mysql_result($qry,$i,"id_produto");
+        $this->valor  			= mysql_result($qry,$i,"valor_item");
+        $this->qtde  			= mysql_result($qry,$i,"qtde");
+    }
 
 
 

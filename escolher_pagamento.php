@@ -102,7 +102,7 @@ if($id_pedido==''){
                         Teste de Conta <br/></p>
 
                 </div>
-
+               <h2><a href="index.php?link=8"><img src="imagens/finalizar-pedido.gif" alt="pagamento"></a></h2>
             </div>
 
         </div>

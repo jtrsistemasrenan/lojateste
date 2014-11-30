@@ -26,11 +26,11 @@ $txt_senha		= strip_tags(trim($_POST["txt_senha"]));
 $txt_ativo		= strip_tags(trim($_POST["txt_ativo"]));
 
 $txt_complemento= strip_tags(trim($_POST["txt_complemento"]));
-$txt_DDD		= strip_tags(trim($_POST["txt_DDD"]));
+$txt_DDD		= strip_tags(trim($_POST["txt_ddd"]));
 $txt_numero		= strip_tags(trim($_POST["txt_numero"]));
 
 
-if($txt_cliente !="" && $txt_email !="") {
+
 //ant_sql_injection é para não permitir qualquer tipo de injeção de sql no codigo digitado pelo usuario
     if($acao=="Inserir"){
         $cad ->setCampos("cliente, endereco, cidade, bairro, uf, cep, email, sexo, fone, senha, ativo_cliente,complemento, ddd, numero");
@@ -77,23 +77,26 @@ if($txt_cliente !="" && $txt_email !="") {
         $cad->setValorNaTabela("id_cliente");
         $cad->setValorPesquisa("$id");
         $cad->alterar();
-        $_SESSION[cliente_curso][CLIENTE] = $txt_cliente;
-        echo "<script type='text/javascript'> location.href='index.php' </script> ";
+        $_SESSION['cliente_curso']['CLIENTE'] = $txt_cliente;
+        echo "<script type='text/javascript'> location.href='index.php?link=10' </script> ";
     }
 
     if($acao=="Atualizar_login"){
+
         $cad ->setCampos("
 						email       	=   '".anti_sql_injection($txt_email)."',					
 						senha       	=   '".anti_sql_injection($txt_senha)."'
 		");
+
+
         $cad->setValorNaTabela("id_cliente");
         $cad->setValorPesquisa("$id");
         $cad->alterar();
 
-        $_SESSION[cliente_curso][EMAIL] = $txt_email;
+        $_SESSION['cliente_curso']['EMAIL'] = $txt_email;
 
-        echo "<script type='text/javascript'> location.href='index.php' </script> ";
-    }
+        echo "<script type='text/javascript'> location.href='index.php?link=10' </script> ";
+    
 
 }
 ?>

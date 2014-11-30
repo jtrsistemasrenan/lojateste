@@ -1,13 +1,19 @@
 <?php
 include_once("admin/classes/DadosDoBanco.php");
+include_once("admin/biblio.php");
 $categoria = new DadosCategoria();
 $produto = new DadosProduto();
 $carrinho = new DadosCarrinho();
 $cliente = new DadosCliente();
+$venda = new DadosVenda();
+$itens = new DadosItensVenda();
 
-//testando o git
+header('Content-Type: text/html; charset=utf-8');
 
+//se a sessao nao estiver sido inicializada entao inicializar
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
 
 ?>
 
@@ -19,6 +25,34 @@ $cliente = new DadosCliente();
 <link href="css/style.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
 <script type="text/javascript" src="js/abas.js"></script>
+    <script  src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste moxiemanager"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+    </script>
+
+    <form method="post" action="somepage">
+        <textarea name="content" style="width:100%"></textarea>
+    </form>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#accordion-1" ).accordion();
+        });
+    </script>
+    <style>
+        #accordion-1{font-size: 14px;}
+    </style>
+
 
 </head>
 <body>
@@ -40,6 +74,11 @@ $cliente = new DadosCliente();
             $page[4] = "frm_cliente.php";
             $page[5] = "logarParaComprar.php";
             $page[6] = "escolher_pagamento.php";
+            $page[7] = "finaliza.php";
+            $page[8] = "finaliza_deposito_transferencia.php";
+            $page[9] = "logoff.php";
+            $page[10] = "minha_conta.php";
+            $page[11] = "busca.php";
 
 
             if(!empty($link)){

@@ -1,6 +1,7 @@
 <?php
 include_once("../classes/ManipulacaoDeDados.class.php");
 include_once("../biblio.php");
+header('Content-Type: text/html; charset=utf-8');
 
 $acao = $_POST["acao"];
 $id = $_POST["id"];
@@ -9,46 +10,54 @@ $id = $_POST["id"];
 $cad = new manipulacaoDeDados();
 $cad->setTabela("produto");
 
-$txt_categoria = $_POST['txt_categoria'];
-$txt_titulo = $_POST['txt_titulo'];
-$txt_preco = $_POST['txt_preco'];
-$txt_autor = $_POST['txt_autor'];
-$txt_duracao = $_POST['txt_duracao'];
-$txt_descricao = $_POST['txt_descricao'];
-$txt_conteudo = $_POST['txt_conteudo'];
-$txt_slug_produto = "";
-$txt_ativo = $_POST['txt_ativo'];
-$txt_nomeimagem = $_POST['nome_imagem'];
+$txt_categoria          = $_POST['txt_categoria'];
+$txt_titulo             = $_POST['txt_titulo'];
+$txt_preco              = $_POST['txt_preco'];
+$txt_autor              = $_POST['txt_autor'];
+$txt_duracao            = $_POST['txt_duracao'];
+$txt_descricao          = $_POST['txt_descricao'];
+$txt_conteudo           = $_POST['txt_conteudo'];
+
+// a funcao gen_slug gera o slug apartir de uma string que no caso é o titulo do produto
+$txt_slug_produto       = gen_slug($txt_titulo);
+$txt_ativo              = $_POST['txt_ativo'];
+$txt_nomeimagem         = $_POST['nome_imagem'];
 
 
-$imagem = $_FILES["img"];
+
+//$imagem = $_FILES["img"];
 $txt_nomeimagem = $_POST["nome_imagem"];
 
 
 /***************************UPLOAD************************/
+    $ext_validas = array(".gif",".jpg",".jpeg",".png");
+    $caminho_absoluto = "../fotos/";
 
+    $nome_arquivo = $_FILES['img']['name'];
+    $arquivo_temporario = $_FILES['img']['tmp_name'];
 
-if ($imagem['name'] != "") {
+    //pega a primeira ocorrencia após o ponto no caso a extencao
+    $ext = strchr($nome_arquivo,".");
 
-    $pasta = '../fotos';
-    $permitido = array('image/jpg', 'image/jpeg', 'image/pjpeg');
+    if(!in_array($ext,$ext_validas)){
 
-    $tmp = $imagem['tmp_name'];
-    $name = $imagem['name'];
-    $type = $imagem['type'];
-
-    $txt_nomeimagem = 'bn-' . md5(uniqid(rand(), true)) . '.jpg';
-
-    if (!empty($name) && in_array($type, $permitido)) {
-
-        upload_jpg($tmp, $txt_nomeimagem, 139, $pasta);
-    } elseif ($type == 'image/png') {
-        upload_png($tmp, $txt_nomeimagem, 139, $pasta);
-
-    } elseif ($type == 'image/gif') {
-        upload_gif($tmp, $txt_nomeimagem, 139, $pasta);
+        echo("Este Arquivo com esta extenção não é válida!");
     }
-};
+
+        $nome_arquivo =md5(uniqid(rand(),true)).$ext;
+
+    if($nome_arquivo!=""){
+        if(move_uploaded_file($arquivo_temporario,$caminho_absoluto."".$nome_arquivo)){
+            //md5 é para gerar um numero aleatorio para ser o nome da imagem para não se repetir
+            $txt_nomeimagem = $nome_arquivo;
+
+        }else{
+            if($acao!="Excluir"&&$acao!="Alterar")
+            die ("Erro no envio do arquivo!");
+        }
+    }
+
+
 /***************************UPLOAD************************/
 
 
@@ -86,8 +95,8 @@ if ($acao == "Excluir") {
 
     $cad->setValorNaTabela("id_produto");
     $cad->setValorPesquisa("$id");
-    //remove a imagem da pasta banner
-    unlink('../banner/' . $txt_nomeimagem);
+    //remove a imagem da pasta fotos
+    unlink('../fotos/' . $txt_nomeimagem);
     $cad->remover();
 
     echo "<script type='text/javascript'> location.href='../index.php?link=6' </script> ";

@@ -1,6 +1,8 @@
 <?php
 
-$id	  = $_SESSION[cliente_curso][IDCLIENTE];
+$id = "";
+    if(isset($_SESSION['cliente_curso']['IDCLIENTE']))
+        $id	  = $_SESSION['cliente_curso']['IDCLIENTE'];
 $cliente->setId($id);
 $cliente->mostrarDados();
 

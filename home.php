@@ -8,10 +8,10 @@
 	<section class="categorias">
 		<h2 class="fundo_azul"> Categorias </h2>
 		<nav>
-			<ul class="fundo_azul">
+			<ul>
 
                 <?php
-                    $sql = "SELECT * FROM categoria";
+                $sql = "SELECT * FROM categoria where ativo_categoria = 's' ORDER BY ordem_categoria";
                     $total = $categoria->totalRegistros($sql);
 
                 for($i=0;$i<$total;$i++){
@@ -19,7 +19,7 @@
                     $idCat = $categoria->getId();
                 ?>
 
-				<li><a href="#"> .:<?php echo $categoria->getCategoria()?></a></li>
+				<li><a href="#"> .:<?php echo $categoria->getCategoria()?></a>
 					<ul >
                         <?php
                         $sql_produtos = "SELECT * FROM produto where id_categoria =$idCat";
@@ -30,10 +30,11 @@
 
                             ?>
 
-						<li><a href="index.php?link=2&id=<?php echo $produto->getId()?>">.:<?php echo $produto->getTituloProduto()?></a></li>
+						<li class="produto_sidebar"><a href="index.php?link=2&id=<?php echo $produto->getId()?>">.:<?php echo $produto->getTituloProduto()?></a></li>
 
                             <?php }?>
 					</ul>
+                    </li>
                 <?php }?>
 			</ul>
 		</nav>
@@ -63,7 +64,7 @@
 				<li>
 					<a href="index.php?link=2&id=<?php echo $produto->getId()?>">
 						<figure>
-							<img src="admin/fotos/<?php echo $produto->getImagemProduto()?>" alt="Curso de Firebird">
+							<img src="admin/fotos/<?php echo $produto->getImagemProduto()?>" width="80" height="90" alt="Curso de Firebird">
 							<figcaption> <?php echo $produto->getTituloProduto()?> </figcaption>
 						</figure>
 						<span> R$ <?php echo $produto->getPreco()?> </span>
