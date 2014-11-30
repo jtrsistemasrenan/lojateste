@@ -56,7 +56,7 @@ if($acao !="" ){
         </label>
         <label>
             <span class="titulo">Descrição </span>
-            <textarea  name="txt_descricao" id="txt_descricao" cols="74" rows="6"  ><?php echo $txt_descricao ?> </textarea>
+            <textarea  name="txt_descricao"  cols="74" rows="6" id="elm1"  ><?php echo $txt_descricao ?> </textarea>
         </label>
         <div class="tres-campos">
             <label>

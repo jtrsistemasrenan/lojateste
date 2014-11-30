@@ -25,22 +25,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <link href="css/style.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
 <script type="text/javascript" src="js/abas.js"></script>
-    <script  src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-    <script type="text/javascript">
-        tinymce.init({
-            selector: "textarea",
-            plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste moxiemanager"
-            ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-        });
-    </script>
 
-    <form method="post" action="somepage">
-        <textarea name="content" style="width:100%"></textarea>
-    </form>
 
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

@@ -47,19 +47,19 @@ if($id_pedido==''){
                     <tr>
 
                         <td>
-                            <img src="admin/fotos/<?php echo $carrinho->getImagemProduto()?>">
+                            <img src="admin/fotos/<?php echo $carrinho->getImagemProduto()?>"  width="80" height="90">
                             <strong><?php echo $carrinho->getTituloProduto()?></strong>
                         </td>
                         <td><?php echo $carrinho->getQtde()?> </td>
-                        <td>R$ <?php echo $carrinho->getPreco() ?> </td>
-                        <td> <?php echo $subTotal?></td>
+                        <td><?php echo 'R$ '. number_format($carrinho->getPreco()*1,2,',','.'); ?> </td>
+                        <td> <?php echo 'R$ '. number_format($subTotal*1,2,',','.');?></td>
                         <?php $total_produto+=$subTotal?>
 
                     </tr>
 
                 <?php } ?>
                 <tr>
-                    <td colspan="5"> <?php if(isset($total_produto)){echo 'Total: '.$total_produto;}?></td>
+                    <td colspan="5"> <?php if(isset($total_produto)){echo 'Total: R$ '. number_format($total_produto*1,2,',','.');}?></td>
                 </tr>
 
                 </tbody>

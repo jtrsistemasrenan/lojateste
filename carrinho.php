@@ -56,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             <tr>
 
                                 <td>
-                                    <img src="admin/fotos/<?php echo $carrinho->getImagemProduto() ?>">
+                                    <img src="admin/fotos/<?php echo $carrinho->getImagemProduto() ?>"  width="80" height="90">
                                     <strong><?php echo $carrinho->getTituloProduto() ?></strong>
                                 </td>
                                 <td><input type="number" name="codprod[<?php echo $i ?>][QTDE]"
@@ -103,7 +103,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
                     <ul>
                         <?php
-                        $sql_produtos = "SELECT * FROM produto where id_categoria =1";
+                        $id_categoria = $carrinho->getIdCategoria();
+                        $sql_produtos = "SELECT * FROM produto where id_categoria = $id_categoria";
                         $total_produto = $produto->totalRegistros($sql_produtos);
 
                         for ($j = 0; $j < $total_produto; $j++) {
@@ -113,7 +114,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             <li>
                                 <a href="index.php?link=2&id=<?php echo $produto->getId() ?>">
                                     <figure>
-                                        <img src="admin/fotos/<?php echo $produto->getImagemProduto() ?>"
+                                        <img src="admin/fotos/<?php echo $produto->getImagemProduto() ?>"  width="80" height="90"
                                              alt="Curso de Firebird">
                                         <figcaption> <?php echo $produto->getTituloProduto() ?> </figcaption>
                                     </figure>

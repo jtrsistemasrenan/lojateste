@@ -235,4 +235,6 @@ if($idCliente !=""){
 </div>
 
 
-<?php }?>
+<?php }else{
+    echo "<script type='text/javascript'> location.href='index.php?link=5&irpara=10' </script> ";
+}?>

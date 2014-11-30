@@ -49,7 +49,7 @@
 	<div id="lado-direito">
 		<section class="vitrine">
 			<div id="cx-img-produto">
-				<a href="#"><img src="admin/fotos/<?php echo $produto->getImagemProduto()?>" alt=""></a>
+				<a href="#"><img src="admin/fotos/<?php echo $produto->getImagemProduto()?>"  width="180" height="250" alt=""></a>
 			</div>
 			<div id="cx-titulo-produto">
 				<h1><a href="#"><?php echo $produto->getTituloProduto()?></a></h1>
@@ -65,7 +65,7 @@
 			</div>
 			<div id="descricao-rapida">
 				<h2>Descrição rápida</h2>
-                <?php echo html_entity_decode($produto->getDescricao())?>
+                <?php echo html_entity_decode("");?>
 			</div>
 			<div id="comprar-produto">
                 <form action="op_carrinho.php" method="post">
@@ -114,7 +114,7 @@
                         <li>
                             <a href="index.php?link=2&id=<?php echo $produto->getId()?>">
                                 <figure>
-                                    <img src="admin/fotos/<?php echo $produto->getImagemProduto()?>" alt="Curso de Firebird">
+                                    <img src="admin/fotos/<?php echo $produto->getImagemProduto()?>"  width="80" height="90" alt="Curso de Firebird">
                                     <figcaption> <?php echo $produto->getTituloProduto()?> </figcaption>
                                 </figure>
                                 <span> R$ <?php echo $produto->getPreco()?> </span>

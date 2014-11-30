@@ -1,0 +1,294 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:12px;
+	background: #F4F4F4;
+}
+
+#principal{
+	width: auto;
+	height: auto;
+}
+
+#cabecalho{
+	width: auto;
+	height: 166px;
+	background: url(../imagens/fundo-menu.png);
+
+}
+#cabecalho_superior{
+	width:100%;
+}
+
+.fundo_azul{
+	background:#28A5D9;
+}
+.fundo_principal{
+	background: url(../imagens/fundo-menu.png);
+}
+#menu-cima{
+	width:960px;
+	height:20px;
+	background:#FFF;
+	margin:0 auto;		
+	font-size:10px;
+}
+
+
+#cabecalho_meio{
+	width:100%;
+	height: 110px;	
+	position:relative;	
+}
+
+#cabecalho_meio h1{
+	text-indent:-9999px;
+	width:175px;
+	height: 52px;
+	position: absolute;
+	top:25px;
+	left:150px;
+	background:url(../imagens/img-logo.png) no-repeat top right;
+	text-align:left;
+}
+
+.busca{
+	position:absolute;
+	width:400px;
+	height: 35px;
+	text-align:right;
+	top:40px;
+	right:200px;
+}
+
+#cabecalho_inferior{
+		width:100%;	
+		
+		border-bottom: 1px solid #ccc;
+		line-height: 22px;
+}
+#menu-principal{
+	width: 960px;
+	height:30px;
+	padding-top:5px;
+	margin:0 auto;
+	text-align: center;
+}
+#corpo{
+	width: 1000px;	
+}
+#esquerdo{
+	width: 191px;
+	float: left;
+	border-right-width:1px;
+	border-right-style: solid;
+	border-right-color:#ccc;
+}
+#esquerdo li, #esquerdo li a{
+	font: 12px verdana;
+	text-decoration:none;
+	color:#555;
+}
+#esquerdo ul li{
+	padding-left: 10px;
+}
+
+#esquerdo li a{
+	width: 165px;
+	padding: 4px 0 3px 5px;
+	display: block;
+	border-bottom: dotted 1px #999;
+	background: #f5f5f5;
+}
+
+#esquerdo li a:hover{
+	color: #069;
+	background-color: #e6f5fb;
+}
+#sessao{
+	padding: 5px 0 0 5px;
+	height: 25px;
+	font-size: 15px;
+	color: #0099FF;
+}
+
+#direito{
+	width: 800px;
+	float: left;
+	margin: 5px 0 0 5px;
+	border: solid 1px #CCC;
+
+}
+
+#direito h2{
+	text-align: center;
+}
+/** Tabela */
+table {
+	
+	border-collapse: collapse;
+	border: 1px solid #333;
+	background: #fff;
+	width: 100%;
+	margin-top: 8px;
+	text-align: center;
+}
+
+table thead{
+	font: 16px Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	color: #FFF;
+	background: #28a5d9;
+}
+
+table thead tr th{
+	padding: 3px 0;
+}
+
+table tbody{
+	font: 16px Tahoma, Geneva, sans-serif;
+	color: #000;
+}
+
+table tbody tr td{
+	padding: 3px;
+}
+table tbody tr:hover{
+	background: #f4f4f4;
+}
+/** fim tabela */
+
+#formulario{
+	width: 635px;
+	padding:3px;
+	background:#fff;
+	margin-top:5px;
+	border: 1px solid #069;
+	margin:0 auto;
+	
+}
+#formulario label{
+	display:block;
+	
+}
+#formulario label span.titulo{
+	font:15px tahoma, arial, helvetica;
+	color: #069;
+	display: block;
+	float: left;
+	width:100%;
+	margin: 6px 4px;
+}
+#formulario label input[type=text], #formulario label input[type=password]{
+	padding: 6px 5px;
+	background: #fff;
+	border: solid 1px #069;
+	width: 595px;
+	outline: none;
+}
+#formulario .dois-campos, #formulario .tres-campos {
+	padding: 4px 0;
+	width: 630px;
+	margin-bottom: 3px;
+	
+	
+}
+
+#formulario .dois-campos label {
+	display: inline-table;
+	width: 305px;
+	margin-right: 8px;	
+}
+
+#formulario .dois-campos label input[type=text], #formulario label input[type=date]{
+	width: 280px;
+}
+
+#formulario .dois-campos label select{
+	padding: 4px;
+	width: 290px;
+	font: 15px tahoma;
+	border: solid 1px #069;
+}
+
+#formulario .tres-campos label {
+	display: inline-table;
+	width: 200px;
+	margin-right: 5px;	
+}
+
+#formulario .tres-campos label input[type=text]{
+	width: 180px;
+}
+
+#formulario .tres-campos label select{
+	padding: 4px;
+	width: 190px;
+	font: 15px tahoma;
+	border: solid 1px #069;
+}
+
+#formulario .botao{
+	width: 120px;
+	display: block;
+	height:30px;
+	margin:10px auto;
+	cursor: pointer;
+	background: #069;
+	color: #fff;
+}
+
+
+#form_pesquisa{
+	width: 790px;
+	padding:3px;
+	background:#fff;
+	margin-top:5px;
+	border: 1px solid #069;
+	margin-bottom:10px;
+
+	
+}
+
+#form_pesquisa .quatro-campos label{
+	display:inline;
+	margin-right:2px;
+}
+
+#form_pesquisa .quatro-campos label input[type=text]{
+	width:200px;
+}
+
+#form_pesquisa .botao{
+	width:90px;
+	height:30px;
+	cursor: pointer;
+	background: #069;
+	color:#fff;
+}
+#lista_venda{
+	width:795px;
+	height:40px;
+	border:1px solid #ccc;
+	background:#C6E2FF;
+	margin-top:5px;
+}
+
+#lista_venda p{
+    margin-top:8px;
+	margin-bottom:5px;
+	padding-top:5px;
+}
+
+.opcoes{
+	float:right;
+	margin-right: 10px;
+}
+
+.fontmenor{
+	font-size:11px;
+}

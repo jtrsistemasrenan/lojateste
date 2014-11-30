@@ -37,3 +37,11 @@
     <li><a href=index.php?link=6>Listar/Editar</a></li>
 
 </ul>
+
+<div id = "sessao">Listar Pedidos</div>
+
+<ul>
+    <li><a href="index.php?link=#">Cadastrar</a></li>
+    <li><a href=index.php?link=8>Listar/Editar</a></li>
+
+</ul>
