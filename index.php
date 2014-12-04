@@ -64,6 +64,7 @@ if (session_status() == PHP_SESSION_NONE) {
             $page[9] = "logoff.php";
             $page[10] = "minha_conta.php";
             $page[11] = "busca.php";
+            $page[13] = "pagseguro.php";
 
 
             if(!empty($link)){

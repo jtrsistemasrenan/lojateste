@@ -107,6 +107,18 @@ if($id_pedido==''){
 
         </div>
 
+        <h4 class="fundo_azul">Opção 02 - PAGSEGURO</h4>
+        <div id="container-logar">
+            <div id="container-bancos-geral">
+
+                    <img src="imagens/pagseguro_1.jpg">
+
+
+                <h2><a href="index.php?link=13"><img src="imagens/finalizar-pedido.gif" alt="pagamento"></a></h2>
+            </div>
+
+        </div>
+
 
     </div>
     </div>

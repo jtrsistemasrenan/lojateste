@@ -32,9 +32,17 @@
 
 if($acao=='Excluir'){
 
+
+    //Excluir itens da venda
+    $cat->setTabela("itens_venda");
     $cat->setValorNaTabela("id_venda");
     $cat->setValorPesquisa($id_venda);
+    $cat->remover();
 
+    //Excluir Venda
+    $cat->setTabela("venda");
+    $cat->setValorNaTabela("id_venda");
+    $cat->setValorPesquisa($id_venda);
     $cat->remover();
 
     echo "<script> location.href='../index.php?link=8';</script>" ;
