@@ -122,7 +122,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
                                     <form action="op_carrinho.php" method="post">
                                         <input type="hidden" name="txt_valor"
-                                               value="<?php echo 'R$ '. number_format($produto->getPreco(),2,',','.'); ?>"/>
+                                               value="<?php echo $produto->getPreco(); ?>"/>
                                         <input type="hidden" name="id_produto" value="<?php echo $produto->getId() ?>"/>
                                         <input type="submit" value="">
                                     </form>

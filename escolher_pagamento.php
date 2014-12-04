@@ -9,6 +9,8 @@ $id_pedido = $_SESSION["id_pedido_curso"];
 if($id_pedido==''){
     $id_pedido=0;
 }
+
+$total_produto = 0;
 ?>
 
 <div id="base-carrinho">

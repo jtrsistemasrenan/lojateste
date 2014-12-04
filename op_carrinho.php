@@ -65,11 +65,14 @@ $carrinho = new DadosCarrinho();
             $cad->setDados("'$id_pedido','$id_produto','$txt_valor','1'");
             $cad->alterar();
 
+
         } else {
             $cad->setCampos("id_pedido,id_produto,valor, qtde");
             $cad->setDados("'$id_pedido','$id_produto','$txt_valor','1'");
             $cad->inserir();
         }
+
+
     }
 
     if($acao =="ALTERAR"){
@@ -95,7 +98,6 @@ $carrinho = new DadosCarrinho();
                 echo 'Remove id_produto = '.$id_produto.' txt_qtde = '.$txt_qtde."</br>";
             }
         }
-
 
     }
 

@@ -102,7 +102,7 @@ require_once ("admin/classes/PagSeguroLibrary/PagSeguroLibrary.php");
 
         $ultimoCodigo = $cad->ultimoRegistro("id_venda","venda");
 
-        $sql= $sql = "select i.* , p.* from itens_venda i , produto p WHERE i.id_produto = p.id_produto and id_pedido = $ultimoCodigo";
+        $sql= $sql = "select i.* , p.* from itens_venda i , produto p WHERE i.id_produto = p.id_produto and id_venda = $ultimoCodigo";
         $totalReg = $itens->totalRegistros($sql);
         $valorTotal =0;
 
