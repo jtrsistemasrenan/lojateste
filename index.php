@@ -49,6 +49,34 @@ if (session_status() == PHP_SESSION_NONE) {
 		<section id="corpo">
             <?php
 
+         /*   $url = (isset($_GET['url']) ? $_GET['url']:'');
+            $explode = explode('/',$url);
+
+            $paginas = array("home.php",
+            "detalhe.php",
+            "carrinho.php",
+            "frm_cliente.php",
+            "logarParaComprar.php",
+            "escolher_pagamento.php",
+            "finaliza.php",
+            "finaliza_deposito_transferencia.php",
+            "logoff.php",
+            "minha_conta.php",
+            "busca.php",
+            "pagseguro.php");
+
+            if(isset($explode[0])&& $explode[0] ==''){
+                include ("home.php");
+            }else if($explode[0]!='') {
+
+                if(isset($explode[0]) && in_array($explode[0].'.php',$paginas)){
+                    include($explode[0].'.php');
+                }else{
+                    include ("home.php");
+                }
+
+            }*/
+
             $link = "";
             if(isset($_GET['link']))
                 $link = $_GET['link'];
@@ -75,7 +103,6 @@ if (session_status() == PHP_SESSION_NONE) {
                 }else{
                     include ("home.php");
                 }
-
 
             }else{
                 include ("home.php");

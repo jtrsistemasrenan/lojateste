@@ -25,8 +25,8 @@
 <div id = "sessao">Admnistradores</div>
 
 <ul>
-    <li><a href="#">Cadastrar</a></li>
-    <li><a href="#">Listar/Editar</a></li>
+    <li><a href="index.php?link=11">Cadastrar</a></li>
+    <li><a href="index.php?link=10">Listar/Editar</a></li>
 
 </ul>
 
@@ -43,5 +43,10 @@
 <ul>
     <li><a href="index.php?link=#">Cadastrar</a></li>
     <li><a href=index.php?link=8>Listar/Editar</a></li>
+
+</ul>
+<div id = "sessao">Encerrar Sessão</div>
+<ul>
+    <li><a href="index.php?link=12">Sair</a></li>
 
 </ul>

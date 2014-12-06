@@ -1,3 +1,17 @@
+<?php
+
+//se a sessao nao estiver sido inicializada entao inicializar
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+header('Content-Type: text/html; charset=utf-8');
+    if(isset($_SESSION['admin_logado_login']) && isset($_SESSION['admin_logado_login'])){
+
+    }else{
+        echo    "<script>location.href='login.php'</script>";
+    }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,6 +74,9 @@
             $page[7] = "frm/frm_produto.php";
             $page[8] = "lst/lst_pedidos.php";
             $page[9] = "frm/frm_venda.php";
+            $page[10] = "lst/lst_administrador.php";
+            $page[11] = "frm/frm_administrador.php";
+            $page[12] = "sair.php";
 
 
             if(!empty($link)){

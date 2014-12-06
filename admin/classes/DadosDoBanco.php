@@ -1026,6 +1026,68 @@ class DadosVenda extends conexaoMySQL{
 
 }
 
+class DadosAdministrador extends conexaoMySQL{
+    private $id, $nome, $email, $login, $tx_senha;
+
+    public function setId($id){
+        $this->id = $id;
+    }
+    public function getId(){
+        return $this-> id;
+    }
+
+    public function getNome(){
+        return $this-> nome;
+    }
+    public function getEmail(){
+        return $this-> email;
+    }
+    public function getLogin(){
+        return $this-> login;
+    }
+    public function getSenha(){
+        return $this-> tx_senha;
+    }
+
+
+    public function mostrarDados(){
+        $sql= "SELECT * FROM  administracao WHERE id_administracao = '$this->id'";
+        $qry = self::executarSQL($sql);
+        $linha = self::listar($qry);
+
+        $this->id  		= $linha["id_administracao"];
+        $this->nome  	= $linha["nome"];
+        $this->email  	= $linha["email"];
+        $this->login  	= $linha["login"];
+        $this->tx_senha  = $linha["senha"];
+
+
+    }
+
+
+    public function totalRegistros($sql){
+        $qry = self::executarSQL($sql);
+        $total= self::contaDados($qry);
+
+        return $total;
+    }
+
+
+    public function verAdministracao($sql,$i){
+        $qry = mysql_query($sql);
+
+
+        $this->id  			= mysql_result($qry,$i,"id_administracao");
+        $this->nome  		= mysql_result($qry,$i,"nome");
+        $this->email  		= mysql_result($qry,$i,"email");
+        $this->login  		= mysql_result($qry,$i,"login");
+        $this->tx_senha  	= mysql_result($qry,$i,"senha");
+
+    }
+
+
+}
+
 
 class DadosItensVenda extends conexaoMySQL{
 

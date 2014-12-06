@@ -1,5 +1,6 @@
 <?php
     $id = $_GET['id'];
+    $id = $explode[1];
 ?>
 
 <div id="corpo-loja">

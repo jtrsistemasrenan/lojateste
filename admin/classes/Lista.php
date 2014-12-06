@@ -90,6 +90,38 @@ include_once "Paginacao.php";
             }
         }
 
+        public function listaAdministrador(){
+            $sql = "SELECT * FROM administracao";
+            $this->setParametro($this->strNumPagina);
+            $this->setFileName($this->strUrl);
+            $this->setInfoMaxPag(10);
+            $this->setMaximoLinks(50);
+            $this->setSQL($sql);
+
+            self::iniciaPaginacao();
+            $cont = 0;
+
+            while($linha = self::results()){
+                $cont++;
+
+                echo " <tr>
+
+        <td>$linha[id_administracao]</td>
+        <td>$linha[nome] </td>
+        <td>$linha[login]</td>
+        <td><a href='index.php?link=11&acao=Alterar&id=$linha[id_administracao]'><img src='imagens/alterar.gif' border='0'> </a> </td>
+                    <td><a href='index.php?link=11&acao=Excluir&id=$linha[id_administracao]'><img src='imagens/excluir.gif'border='0'> </a> </td>
+
+    </tr>
+
+
+                ";
+
+
+                self::setContador($cont);
+            }
+        }
+
         public function listaProduto(){
             $sql = "SELECT * FROM produto";
             $this->setParametro($this->strNumPagina);
